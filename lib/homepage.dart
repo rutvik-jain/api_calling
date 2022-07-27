@@ -23,7 +23,7 @@ class _HomepageState extends State<Homepage> {
   }
 
   getData() async {
-    posts = await RemoteService().getArticles();
+    posts = await RemoteService().getPost();
     if (posts != null) {
       setState((){
         isLoaded = true;
@@ -37,22 +37,28 @@ class _HomepageState extends State<Homepage> {
         title: Text('News App'),
         backgroundColor: Colors.grey,
       ),
-      body: ListView.builder(
-        itemCount: posts?.length,
-          itemBuilder: (context,index){
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Card(
-                child: Column(
-                  children: [
-                    Text(posts![index].articles[index].title),
-                  ],
-                ),
-              )
-            ],
-          );
-          }),
+      body: Visibility(
+        visible: isLoaded,
+        replacement: Center(
+          child: CircularProgressIndicator(),
+        ),
+        child: ListView.builder(
+          itemCount: posts?.length,
+            itemBuilder: (context,index){
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Card(
+                  child: Column(
+                    children: [
+                      Text(posts![index].articles[index].title),
+                    ],
+                  ),
+                )
+              ],
+            );
+            }),
+      ),
     );
   }
 }

@@ -16,9 +16,10 @@ class Post {
   List<Article> articles;
 
   factory Post.fromJson(Map<String, dynamic> json) => Post(
-    status: json["status"],
+    status: json["status"] ,
     totalResults: json["totalResults"],
-    articles: List<Article>.from(json["articles"].map((x) => Article.fromJson(x))),
+    articles: List<Article>.from(json["articles"].map((x) => Article.fromJson(json))),
+    // map((x) => Article.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
