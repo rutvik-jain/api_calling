@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_api/model.dart';
-import 'package:news_api/remote_service.dart';
+import 'package:news_api/model/model.dart';
+import 'package:news_api/service/remote_service.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);

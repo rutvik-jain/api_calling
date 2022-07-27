@@ -1,4 +1,4 @@
-import 'package:news_api/model.dart';
+import 'package:news_api/model/model.dart';
 import 'package:http/http.dart' as http;
 class RemoteService {
   Future<List<Post>?> getArticles() async {
