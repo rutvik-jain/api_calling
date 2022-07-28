@@ -11,7 +11,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
 
-  List<Post>? posts;
+  Post? posts;
   var isLoaded = false;
 
   @override
@@ -43,15 +43,16 @@ class _HomepageState extends State<Homepage> {
           child: CircularProgressIndicator(),
         ),
         child: ListView.builder(
-          itemCount: posts?.length,
+          itemCount: 10,
             itemBuilder: (context,index){
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Card(
+                  margin: EdgeInsets.all(16),
                   child: Column(
                     children: [
-                      Text(posts![index].articles[index].title),
+                      Text(posts!.articles[index].title),
                     ],
                   ),
                 )
