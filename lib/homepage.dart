@@ -34,7 +34,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('News App'),
+        title: Center(child: Text('News App')),
         backgroundColor: Colors.grey,
       ),
       body: Visibility(
@@ -48,14 +48,49 @@ class _HomepageState extends State<Homepage> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Card(
-                  margin: EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      Text(posts!.articles[index].title),
-                    ],
+                GestureDetector(
+                  onTap: (){
+
+                  },
+                  child: Card(
+                    margin: EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Image.network(posts!.articles[index].urlToImage,),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            padding: EdgeInsets.only(top: 5,bottom: 5,right: 5,left: 5),
+                            margin: EdgeInsets.only(top: 15,),
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Text(posts!.articles[index].author,style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(posts!.articles[index].title,style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20,top: 10,bottom: 10),
+                          child: Text('Published at:- ' + posts!.articles[index].publishedAt.toString(),style: TextStyle(
+                            fontSize: 18,fontWeight: FontWeight.bold
+                          ),),
+                        )
+                      ],
+                    ),
                   ),
-                )
+                ),
               ],
             );
             }),
