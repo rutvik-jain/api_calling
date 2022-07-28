@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_api/details_page.dart';
 import 'package:news_api/model/model.dart';
 import 'package:news_api/service/remote_service.dart';
 
@@ -50,7 +51,11 @@ class _HomepageState extends State<Homepage> {
               children: [
                 GestureDetector(
                   onTap: (){
-
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (BuildContext context){
+                          return Details_page(posts!.articles[index].title, posts!.articles[index].author,
+                              posts!.articles[index].description, posts!.articles[index].urlToImage);
+                        }));
                   },
                   child: Card(
                     margin: EdgeInsets.all(16),
@@ -86,7 +91,7 @@ class _HomepageState extends State<Homepage> {
                           child: Text('Published at:- ' + posts!.articles[index].publishedAt.toString(),style: TextStyle(
                             fontSize: 18,fontWeight: FontWeight.bold
                           ),),
-                        )
+                        ),
                       ],
                     ),
                   ),
