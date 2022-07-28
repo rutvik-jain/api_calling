@@ -54,7 +54,7 @@ class _HomepageState extends State<Homepage> {
                     Navigator.push(context, MaterialPageRoute(
                         builder: (BuildContext context){
                           return Details_page(posts!.articles[index].title, posts!.articles[index].author,
-                              posts!.articles[index].description, posts!.articles[index].urlToImage);
+                              posts!.articles[index].description, posts!.articles[index].urlToImage, posts!.articles[index].content);
                         }));
                   },
                   child: Card(

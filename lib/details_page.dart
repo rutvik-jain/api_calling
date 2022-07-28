@@ -7,7 +7,8 @@ class Details_page extends StatefulWidget {
   String title;
   String description;
   String urlToImage;
-  Details_page(this.title,this.author,this.description,this.urlToImage);
+  String content;
+  Details_page(this.title,this.author,this.description,this.urlToImage,this.content);
 
   @override
   State<Details_page> createState() => _Details_pageState();
